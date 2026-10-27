@@ -24,7 +24,15 @@ Three SDK places say margin is bank-only and nothing is approved. Two other SDK 
 `placePerpOrder` has no `autoApprove`, and the Trader has no MarginBank-approve helper. So the auto-pull path can only succeed if an earlier `depositMargin` happened to leave enough allowance. `getMaxPerpOrderSize({ autoPull: true })` can return `limitedBy: "walletAllowance"`, but there is no SDK verb to clear it other than `depositMargin`.
 
 ## Evidence
-SDK source references above (0.32.1, `dist/`). A live confirmation (an order placed with an empty bank and an approved wallet) is in `evidence/03-orders-*.json` if attached.
+SDK source references above (0.32.1, `dist/`).
+
+Live confirmation (2026-10-27, `evidence/03-orders-ETH.json`, case C7): a crossing IOC `placePerpOrder` on ETH, from a wallet with an empty MarginBank balance and no allowance, fails inside the token pull:
+
+```
+ContractRevertError: @somnia-chain/markets-sdk: placeOrder reverted: Error(ERC20: insufficient allowance)
+```
+
+So the pool did try to pull from the wallet, which the `placePerpOrder` JSDoc says never happens. The SDK sent no approval first, and offered no option to.
 
 ## Environment
 SDK `@somnia-chain/markets-sdk` 0.32.1 · Somnia Tokyo testnet (Hideki, chain 50383) · static review of the published package

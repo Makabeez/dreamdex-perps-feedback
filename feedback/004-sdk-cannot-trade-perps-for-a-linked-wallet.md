@@ -8,7 +8,8 @@ Area: SDK
 2. `npm i @somnia-chain/markets-sdk@0.32.1` and list the perp-pool write ABI the SDK ships:
 
 ```bash
-node --input-type=module -e 'const m = await import("@somnia-chain/markets-sdk/dist/tradeAbi.js"); console.log(m.perpPoolWriteAbi.filter(f=>f.type==="function").map(f=>f.name))'
+# dist/ is not in the package "exports", so import the file by path
+node --input-type=module -e 'const m = await import(process.argv[1]); console.log(m.perpPoolWriteAbi.filter(f=>f.type==="function").map(f=>f.name))' "$PWD/node_modules/@somnia-chain/markets-sdk/dist/tradeAbi.js"
 # [ 'placeOrder', 'cancelOrder', 'updateFunding', 'marginBank' ]
 ```
 

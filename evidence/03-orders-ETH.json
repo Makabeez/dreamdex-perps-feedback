@@ -1,0 +1,146 @@
+{
+  "capturedAt": "2026-10-27T22:25:50.800Z",
+  "sdk": "0.32.1",
+  "rpc": "https://api.hideki2.infra.testnet.somnia.network",
+  "indexer": "https://hideki-dev.smk.somnia.host/v1/graphql",
+  "data": {
+    "account": "0xcBBB7c1Fac5fbacbf3fC40FB7b799fe5aCC772f2",
+    "market": "ETH",
+    "pool": "0xd6cb1dd58580b84d76068ac21594219ce03aeddf",
+    "cases": [
+      {
+        "id": "C1-voucher",
+        "claim": "Any address can claim the 1,000 USDso perps credit once while flat",
+        "expected": "claim succeeds or account already holds it",
+        "txs": [],
+        "data": {
+          "eligible": true,
+          "grantAmount": "1000000000000000000000"
+        },
+        "error": {
+          "class": "ContractRevertError",
+          "reason": "for an unknown reason.",
+          "data": "0x3e31dcc2",
+          "functionName": "claim",
+          "message": "@somnia-chain/markets-sdk: claim reverted: for an unknown reason."
+        },
+        "actual": "threw ContractRevertError"
+      },
+      {
+        "id": "C2-max-size",
+        "claim": "getMaxPerpOrderSize returns the largest order the account can place",
+        "expected": "order at maxQuantity rests; maxQuantity + 1 lot reverts",
+        "txs": [],
+        "data": {
+          "quote": {
+            "priceable": true,
+            "asOfBlock": "34867795",
+            "maxQuantity": "0",
+            "unalignedMaxQuantity": "0",
+            "increasingQuantity": "0",
+            "reducingQuantity": "0",
+            "lockAmount": "0",
+            "topUpRequired": "0",
+            "wallet": null,
+            "fundingPayer": null,
+            "mainWalletCapacity": null,
+            "ownWalletPull": "0",
+            "mainWalletPull": "0",
+            "mainFundingBlocked": false,
+            "placeable": false,
+            "limitedBy": "collateral",
+            "lotSize": "100000000000000",
+            "minQuantity": "4000000000000000",
+            "maxPositionSize": "399561200000000000000",
+            "positionSize": "0",
+            "markPrice": "2347911923501593500000",
+            "effectiveImfBps": "500"
+          }
+        },
+        "actual": "not placeable: collateral",
+        "ok": false
+      },
+      {
+        "id": "C3-fok",
+        "claim": "Orders docs list FOK; PlacePerpOrderParams.orderType JSDoc lists only 0 and 2",
+        "expected": "orderType 1 at a non-crossing price places nothing",
+        "txs": [],
+        "error": {
+          "class": "ContractRevertError",
+          "errorName": "FillOrKillNotFillable",
+          "data": "0xc04ad919",
+          "functionName": "placeOrder",
+          "message": "@somnia-chain/markets-sdk: placeOrder reverted: FillOrKillNotFillable()"
+        },
+        "actual": "reverted FillOrKillNotFillable",
+        "ok": true
+      },
+      {
+        "id": "C4-alo",
+        "claim": "ALO is rejected if any of it would fill immediately",
+        "expected": "orderType 3 at a crossing price is rejected and nothing fills",
+        "txs": [],
+        "error": {
+          "class": "ContractRevertError",
+          "errorName": "PostOnlyWouldCross",
+          "data": "0x7cf05fcb",
+          "functionName": "placeOrder",
+          "message": "@somnia-chain/markets-sdk: placeOrder reverted: PostOnlyWouldCross()"
+        },
+        "actual": "reverted PostOnlyWouldCross",
+        "ok": true,
+        "data": {
+          "positionBefore": "0",
+          "positionAfter": "0"
+        }
+      },
+      {
+        "id": "C5-ioc-nofill",
+        "claim": "A single IOC that fills nothing reverts with ImmediateOrCancelNoFill() (0xd48c4403)",
+        "expected": "ContractRevertError with errorName ImmediateOrCancelNoFill",
+        "txs": [],
+        "error": {
+          "class": "ContractRevertError",
+          "errorName": "ImmediateOrCancelNoFill",
+          "data": "0xd48c4403",
+          "functionName": "placeOrder",
+          "message": "@somnia-chain/markets-sdk: placeOrder reverted: ImmediateOrCancelNoFill()"
+        },
+        "actual": "ContractRevertError errorName=ImmediateOrCancelNoFill data=0xd48c4403",
+        "ok": true
+      },
+      {
+        "id": "C6-decimals",
+        "claim": "A wrong quantity scale 'does not fail with an error that says so'",
+        "expected": "SDK either rejects early or surfaces an actionable error",
+        "txs": [],
+        "data": {
+          "baseDecimals": 18,
+          "wrongQuantity": "10000000000000000"
+        },
+        "actual": "skipped: market uses 18 base decimals, pick MARKET=BTC/SOL"
+      },
+      {
+        "id": "C7-no-reduce-only",
+        "claim": "Orders docs: reduce-only orders can only shrink a position, never open or flip one",
+        "expected": "a bot has some way to send a reduce-only close",
+        "txs": [],
+        "error": {
+          "class": "ContractRevertError",
+          "errorName": "Error",
+          "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001d45524332303a20696e73756666696369656e7420616c6c6f77616e6365000000",
+          "functionName": "placeOrder",
+          "message": "@somnia-chain/markets-sdk: placeOrder reverted: Error(ERC20: insufficient allowance)"
+        },
+        "actual": "threw ContractRevertError Error"
+      },
+      {
+        "id": "C8-voucher-blocked",
+        "claim": "Paper USDso blocks some markets; getMaxPerpOrderSize reports limitedBy 'voucherBlocked'",
+        "expected": "quoter says voucherBlocked and the order reverts",
+        "txs": [],
+        "actual": "no voucher-blocked market found for this account"
+      }
+    ]
+  }
+}

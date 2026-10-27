@@ -16,7 +16,10 @@ export const markets = new SomniaMarkets({
   indexerUrl: INDEXER,
   addresses: SOMNIA_HIDEKI_TESTNET_ADDRESSES,
   ...(pk ? { privateKey: pk } : {}),
-});
+  // SDK default is a 60 gwei ceiling x 10M gas = a 0.6 STT balance requirement per write
+  // (see feedback/006). Base fee on Hideki is ~6 gwei, so 12 gwei keeps the envelope at 0.12 STT.
+  fees: { maxFeePerGas: BigInt(process.env.MAX_FEE_GWEI ?? "12") * 10n ** 9n, maxPriorityFeePerGas: 0n },
+} as any);
 
 export const pub = createPublicClient({ chain: hidekiTestnet, transport: http(RPC) });
 export const ADDRS = SOMNIA_HIDEKI_TESTNET_ADDRESSES;
