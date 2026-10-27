@@ -1,0 +1,414 @@
+{
+  "capturedAt": "2026-10-27T21:50:49.168Z",
+  "sdk": "0.32.1",
+  "rpc": "https://api.hideki2.infra.testnet.somnia.network",
+  "indexer": "https://hideki-dev.smk.somnia.host/v1/graphql",
+  "data": {
+    "summary": {
+      "A_accrualFormula": "1239/1239 intervals match size × index × rate / 8 exactly (docs claim VERIFIED)",
+      "B_signRule": "11/21 markets: rate > 0 while the pool's own premium < 0 — longs pay while the perp trades below the index (docs claim CONTRADICTED)",
+      "B_model": "21/21 markets fit rate = premium + clamp(0.01% - premium, ±0.05%) to within 0.0001% (an interest component and clamp the docs do not mention)"
+    },
+    "report": [
+      {
+        "sym": "ZRO",
+        "pool": "0x2a1822b02039ddf0e293f3f7243673fc03eaf16c",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "4364885709092",
+          "emaPremiumPct": "0.0004%",
+          "markVsIndexBps": 5.09,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": false
+        },
+        "lastFundingTx": "0xf294c9b97cc4fd3301296d1c3ddc51070cf49841950b2f11fb7387bb5f49f083"
+      },
+      {
+        "sym": "LIT",
+        "pool": "0xdcb0ad226727b2ce92857f0af5751389d42b2a3f",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "-7821926927669",
+          "emaPremiumPct": "-0.0008%",
+          "markVsIndexBps": -12.28,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0xf85392528f527b636536b2edf64038d2b983af24609d4fcba298ab50b82f8667"
+      },
+      {
+        "sym": "VVV",
+        "pool": "0x352636ab146039851ef06d6367a106d5fb4e6409",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "29553144699576",
+          "emaPremiumPct": "0.0030%",
+          "markVsIndexBps": 4.9,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": false
+        },
+        "lastFundingTx": "0x0a804089f72a05f363fa6eb51dd486e6cd54099b03d746bcdede545fa17ce551"
+      },
+      {
+        "sym": "1000PEPE",
+        "pool": "0xfa9b9e50cc1745113d57893991af200a74c86b6f",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "144675208855",
+          "emaPremiumPct": "0.0000%",
+          "markVsIndexBps": -5.78,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": false
+        },
+        "lastFundingTx": "0xfce2a25ec0bc2dec3ee6e5443a2e2dee457977de6588f38f469578db51393de1"
+      },
+      {
+        "sym": "PUMP",
+        "pool": "0x76c981a52530cdf9497559140aafcd8cd16836e7",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "-318993778367",
+          "emaPremiumPct": "-0.0000%",
+          "markVsIndexBps": -5.36,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0xd31e9f2b6adb3c97353cdcd2ca59e90c4e6ec8e44d87753e5d79c062d5dda9a9"
+      },
+      {
+        "sym": "ZEC",
+        "pool": "0x2a73129f26917124bd2a47a9b355c395c537f050",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "-39272504598634",
+          "emaPremiumPct": "-0.0039%",
+          "markVsIndexBps": -0.24,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0x86277618f23e166ea5be6f3c92f9bc0821aa8431c198b4811af029fc0d9646b8"
+      },
+      {
+        "sym": "TAO",
+        "pool": "0xd9b6a347a3ae9fd6ba21179d3343f2c8a922f697",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "2946463061096",
+          "emaPremiumPct": "0.0003%",
+          "markVsIndexBps": -0.46,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": false
+        },
+        "lastFundingTx": "0x10a44ebfe1427786132cb571ae5bfd05d1a58d11d1a1c42918a7713d9a08afb6"
+      },
+      {
+        "sym": "WLD",
+        "pool": "0x0f464d57c1fd839e4d87a408bbccdab8f77e6394",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "21087243776776",
+          "emaPremiumPct": "0.0021%",
+          "markVsIndexBps": -9.09,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": false
+        },
+        "lastFundingTx": "0x0efb9ad2dca967aa4f9c3f4b66a12bbd202d9f8c7179f4d2af1f68911a4b23a5"
+      },
+      {
+        "sym": "NEAR",
+        "pool": "0x1cd15ae8bff0fe0a7f49233be8b90734775ba454",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "-36416342952696",
+          "emaPremiumPct": "-0.0036%",
+          "markVsIndexBps": -5.55,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0x5e1ce753fdd9a45e24d3836a041f6ece5851ea560f487c89e31ab3fd066e6fe7"
+      },
+      {
+        "sym": "XLM",
+        "pool": "0x74b05b9b8c8f180b53b7891018f3b254b3e658c9",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "-2676929749837",
+          "emaPremiumPct": "-0.0003%",
+          "markVsIndexBps": -5.09,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0xcaf1dd5aefc64c182ebbea43ce0b305a256edf0e8a164bb33be81436fa88e7aa"
+      },
+      {
+        "sym": "AVAX",
+        "pool": "0xde9762b6b441133d1314c68864ae4e63a6ee45c7",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "-6123969091908",
+          "emaPremiumPct": "-0.0006%",
+          "markVsIndexBps": -6.15,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0x39c79f958d3d8eff733004c3be487c688e1dd61f13ecfdcf9aa57e193d30294a"
+      },
+      {
+        "sym": "LINK",
+        "pool": "0xf71b619450bafe953f47b9b556416a3a67b443b5",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "-8771679234024",
+          "emaPremiumPct": "-0.0009%",
+          "markVsIndexBps": -5.29,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0x6b5b33df3dfbf14af8007e3d91fceba1a5eecdb197b7cfda2eac0c2fa59b8b11"
+      },
+      {
+        "sym": "SUI",
+        "pool": "0x1be21287cfb865a7c462ff3c4f275e70bcccefe4",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "216167641115010",
+          "emaPremiumPct": "0.0216%",
+          "markVsIndexBps": -6.84,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": false
+        },
+        "lastFundingTx": "0x9330575005d73717b5305a156db8ce168c305ffa58d002748aa3c90a80e3d002"
+      },
+      {
+        "sym": "ADA",
+        "pool": "0x34fa62909f77699a7a6278d992f72ff31c7a619d",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "-6957111097335",
+          "emaPremiumPct": "-0.0007%",
+          "markVsIndexBps": -7.55,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0x591e62f172bdbe7d3038de26702b6bbdb8f836459929d73bffbfbccb7cecdf7c"
+      },
+      {
+        "sym": "BNB",
+        "pool": "0x3d2a99fe1e2bdeaa25024515a2d2202daf9531ad",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "316372641376857",
+          "emaPremiumPct": "0.0316%",
+          "markVsIndexBps": 0.62,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": false
+        },
+        "lastFundingTx": "0xc98ae302196bbe9ab27ea168856dcaa5e0b516c85df14ab0ef903112a228ed39"
+      },
+      {
+        "sym": "DOGE",
+        "pool": "0xc410012e39765cd5f772e84bacb19554aec040df",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "-1482240857424",
+          "emaPremiumPct": "-0.0001%",
+          "markVsIndexBps": -5.08,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0x030d776919e2497515ce36b0f25af30638a33915c35a52413c53f59d07e86977"
+      },
+      {
+        "sym": "XRP",
+        "pool": "0x7058579f3248559963f79adb937c6de9f953e060",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "89536587593975",
+          "fundingRatePct": "0.0090%",
+          "emaPremium": "-410463412406025",
+          "emaPremiumPct": "-0.0410%",
+          "markVsIndexBps": -3.77,
+          "modelRatePct": "0.0090%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0xe4e4fa07f858a316281f4c57b26fb3a3b5c402e6c916365ccb8a6efc4926ce94"
+      },
+      {
+        "sym": "HYPE",
+        "pool": "0x63b47ed4a7de0fde659b0d82441dd74828b7297a",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "-363444170646967",
+          "fundingRatePct": "-0.0363%",
+          "emaPremium": "-863444170646967",
+          "emaPremiumPct": "-0.0863%",
+          "markVsIndexBps": -6.08,
+          "modelRatePct": "-0.0363%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": false
+        },
+        "lastFundingTx": "0x819ec67e3de684322c46bc131ae7edbf57dec7bc9a9767f75b5f2dbedaac2ef9"
+      },
+      {
+        "sym": "SOL",
+        "pool": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "532000011256344",
+          "fundingRatePct": "0.0532%",
+          "emaPremium": "1032000011256344",
+          "emaPremiumPct": "0.1032%",
+          "markVsIndexBps": -3.94,
+          "modelRatePct": "0.0532%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": false
+        },
+        "lastFundingTx": "0x2a718835a8b512f8c74adf0eb065a1bf61b33903c74f7cab549c05a329fb8a7c"
+      },
+      {
+        "sym": "ETH",
+        "pool": "0xd6cb1dd58580b84d76068ac21594219ce03aeddf",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "100000000000000",
+          "fundingRatePct": "0.0100%",
+          "emaPremium": "-112261872871114",
+          "emaPremiumPct": "-0.0112%",
+          "markVsIndexBps": -3.58,
+          "modelRatePct": "0.0100%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": true
+        },
+        "lastFundingTx": "0x91599a3afb9be322fb4fccd05574107a736fac986e1e2cf8bf2502870015890c"
+      },
+      {
+        "sym": "BTC",
+        "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+        "accrual": {
+          "intervalsChecked": 59,
+          "worstRelativeError": 0
+        },
+        "live": {
+          "fundingRate": "1119112230395406",
+          "fundingRatePct": "0.1119%",
+          "emaPremium": "1619112230395406",
+          "emaPremiumPct": "0.1619%",
+          "markVsIndexBps": -3.61,
+          "modelRatePct": "0.1119%",
+          "modelFits": true,
+          "longsPayWhilePerpBelowIndex": false
+        },
+        "lastFundingTx": "0x4eb8c4dd32795fae7998ebac960a9151140cdf7a3b9042eb15de25218b126cd1"
+      }
+    ]
+  }
+}

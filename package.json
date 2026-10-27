@@ -1,0 +1,23 @@
+{
+  "name": "dreamdex-perps-feedback",
+  "version": "1.0.0",
+  "description": "Reproducible feedback for the dreamDEX Perps Builder Bounty (Somnia Tokyo testnet)",
+  "scripts": {
+    "probe:markets": "tsx probes/01-markets.ts",
+    "probe:funding": "tsx probes/02-funding.ts",
+    "probe:orders": "tsx --env-file=.env probes/03-orders.ts",
+    "typecheck": "tsc -p .",
+    "judge": "tsx probes/01-markets.ts && tsx probes/02-funding.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@somnia-chain/markets-sdk": "0.32.1",
+    "viem": "^2.57.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "type": "module"
+}
